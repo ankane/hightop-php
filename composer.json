@@ -1,0 +1,39 @@
+{
+    "name": "ankane/hightop",
+    "description": "A nice shortcut for group count queries with Eloquent / Laravel",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/ankane/hightop-php/issues",
+        "source": "https://github.com/ankane/hightop-php"
+    },
+    "authors": [
+        {
+            "name": "Andrew Kane",
+            "email": "andrew@ankane.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Hightop\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">= 8.0",
+        "illuminate/database": ">= 9.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9",
+        "illuminate/database": ">= 9.0",
+        "illuminate/events": ">= 9.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hightop\\HightopServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "phpunit tests"
+    }
+}
