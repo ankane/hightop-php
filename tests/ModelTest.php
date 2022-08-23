@@ -68,16 +68,7 @@ final class ModelTest extends TestCase
 
     public function testExpressionNoExpression()
     {
-        global $adapter;
-        if ($adapter == 'pgsql') {
-            $this->expectExceptionMessage('Undefined column');
-        } elseif ($adapter == 'mysql') {
-            $this->expectExceptionMessage('Unknown column');
-        } else {
-            // sqlite allows double-quoted string literals by default
-            // https://www.sqlite.org/quirks.html
-            $this->assertTrue(true);
-        }
+        $this->expectNeedsExpression();
 
         Visit::top('lower(city)');
     }
@@ -101,6 +92,13 @@ final class ModelTest extends TestCase
             'San Francisco' => 2
         ];
         $this->assertEquals($expected, Visit::top('city', distinct: new Expression('lower(user_id)')));
+    }
+
+    public function testDistinctExpressionNoExpression()
+    {
+        $this->expectNeedsExpression();
+
+        Visit::top('city', distinct: 'lower(user_id)');
     }
 
     public function testMin()
@@ -140,6 +138,20 @@ final class ModelTest extends TestCase
     {
         for ($i = 0; $i < $count; $i++) {
             Visit::create(['city' => $city]);
+        }
+    }
+
+    private function expectNeedsExpression()
+    {
+        global $adapter;
+        if ($adapter == 'pgsql') {
+            $this->expectExceptionMessage('Undefined column');
+        } elseif ($adapter == 'mysql') {
+            $this->expectExceptionMessage('Unknown column');
+        } else {
+            // sqlite allows double-quoted string literals by default
+            // https://www.sqlite.org/quirks.html
+            $this->assertTrue(true);
         }
     }
 }
