@@ -55,6 +55,12 @@ And min count
 Visit::top('city', min: 10);
 ```
 
+And `where` clauses
+
+```php
+Visit::where('browser', 'Firefox')->top('os');
+```
+
 ## History
 
 View the [changelog](CHANGELOG.md)
