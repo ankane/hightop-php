@@ -4,17 +4,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - run: composer install
+      - uses: actions/checkout@v3
+      - run: composer install
 
-    - run: composer test
+      - run: composer test
 
-    - uses: ankane/setup-postgres@v1
-      with:
-        database: hightop_php_test
-    - run: ADAPTER=pgsql composer test
+      - uses: ankane/setup-postgres@v1
+        with:
+          database: hightop_php_test
+      - run: ADAPTER=pgsql composer test
 
-    - uses: ankane/setup-mysql@v1
-      with:
-        database: hightop_php_test
-    - run: ADAPTER=mysql composer test
+      - uses: ankane/setup-mysql@v1
+        with:
+          database: hightop_php_test
+      - run: ADAPTER=mysql composer test
