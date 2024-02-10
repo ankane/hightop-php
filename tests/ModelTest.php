@@ -143,7 +143,7 @@ final class ModelTest extends TestCase
 
     private function expectNeedsExpression()
     {
-        global $adapter;
+        $adapter = getenv('ADAPTER');
         if ($adapter == 'pgsql') {
             $this->expectExceptionMessage('Undefined column');
         } elseif ($adapter == 'mysql') {
