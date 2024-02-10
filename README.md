@@ -11,7 +11,7 @@ Visit::top('browser');
 // ]
 ```
 
-[![Build Status](https://github.com/ankane/hightop-php/workflows/build/badge.svg?branch=master)](https://github.com/ankane/hightop-php/actions)
+[![Build Status](https://github.com/ankane/hightop-php/actions/workflows/build.yml/badge.svg)](https://github.com/ankane/hightop-php/actions)
 
 ## Installation
 
