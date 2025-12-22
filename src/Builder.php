@@ -35,7 +35,7 @@ class Builder
             $result = [];
             foreach ($rows as $row) {
                 $values = array_values($row);
-                $result[$values[0]] = $values[1];
+                $result[$values[0] ?? ''] = $values[1];
             }
             return $result;
         });

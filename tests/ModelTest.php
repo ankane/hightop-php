@@ -52,7 +52,7 @@ final class ModelTest extends TestCase
         $this->createCity(null, 2);
         $expected = [
             'San Francisco' => 3,
-            null => 2
+            '' => 2
         ];
         $this->assertEquals($expected, Visit::top('city', null: true));
     }
