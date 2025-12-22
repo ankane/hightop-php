@@ -35,6 +35,7 @@ class Builder
             $result = [];
             foreach ($rows as $row) {
                 $values = array_values($row);
+                // TODO support specifying key for null
                 $result[$values[0] ?? ''] = $values[1];
             }
             return $result;
